@@ -28,7 +28,7 @@ import android.util.Log;
 
 import androidx.preference.PreferenceManager;
 
-import lineageos.providers.LineageSettings;
+//import lineageos.providers.LineageSettings;
 
 public class DefaultSystemSettings {
     private static final String TAG = "DefaultSystemSettings";
@@ -55,14 +55,14 @@ public class DefaultSystemSettings {
     }
 
     public void onBootCompleted() {
-        if (isFirstRun("disable-nav-keys")) {
+/*        if (isFirstRun("disable-nav-keys")) {
             writeDisableNavkeysOption(true);
         }
 
         if (isFirstRun("enable-battery-light")) {
             writeBatteryLightOption(true);
         }
-
+*/
         if (isFirstRun("enable-dt2w")) {
             writeDt2wOption(true);
         }
@@ -74,29 +74,29 @@ public class DefaultSystemSettings {
         tweakActivityManagerSettings();
         writeAnimationSettings();
     }
-
-    private void writeDisableNavkeysOption(final boolean enabled) {
-        final boolean virtualKeysEnabled = LineageSettings.System.getIntForUser(
-                mContext.getContentResolver(), LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
+/*
+       private void writeDisableNavkeysOption(final boolean enabled) {
+        final boolean virtualKeysEnabled = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.FORCE_SHOW_NAVBAR, 0,
                 UserHandle.USER_CURRENT) != 0;
         if (enabled != virtualKeysEnabled) {
-            LineageSettings.System.putIntForUser(mContext.getContentResolver(),
-                    LineageSettings.System.FORCE_SHOW_NAVBAR, enabled ? 1 : 0,
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.FORCE_SHOW_NAVBAR, enabled ? 1 : 0,
                     UserHandle.USER_CURRENT);
         }
     }
 
     private void writeBatteryLightOption(final boolean enabled) {
-        final boolean isBatteryLightEnabled = LineageSettings.System.getIntForUser(
-                mContext.getContentResolver(), LineageSettings.System.BATTERY_LIGHT_ENABLED, 0,
+        final boolean isBatteryLightEnabled = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.BATTERY_LIGHT_ENABLED, 0,
                 UserHandle.USER_CURRENT) != 0;
         if (enabled != isBatteryLightEnabled) {
-            LineageSettings.System.putIntForUser(mContext.getContentResolver(),
-                    LineageSettings.System.BATTERY_LIGHT_ENABLED, enabled ? 1 : 0,
+            	Settings.System.putIntForUser(mContext.getContentResolver(),
+                    	Settings.System.BATTERY_LIGHT_ENABLED, enabled ? 1 : 0,
                     UserHandle.USER_CURRENT);
         }
     }
-
+*/
     private void writeDt2wOption(final boolean enabled) {
         final boolean isDt2wEnabled = Settings.Secure.getIntForUser(
                 mContext.getContentResolver(), Settings.Secure.DOUBLE_TAP_TO_WAKE, 0,
@@ -152,9 +152,9 @@ public class DefaultSystemSettings {
 
     private void writeAnimationSettings() {
         Settings.Global.putString(mContext.getContentResolver(),
-                Settings.Global.WINDOW_ANIMATION_SCALE, "0.7");
+                Settings.Global.WINDOW_ANIMATION_SCALE, "0.6");
         Settings.Global.putString(mContext.getContentResolver(),
-                Settings.Global.TRANSITION_ANIMATION_SCALE, "0.7");
+                Settings.Global.TRANSITION_ANIMATION_SCALE, "0.6");
         Settings.Global.putString(mContext.getContentResolver(),
                 Settings.Global.ANIMATOR_DURATION_SCALE, "0.7");
     }

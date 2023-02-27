@@ -462,6 +462,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/telephony_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/telephony_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/telephony_product_privapp-permissions-qti.xml
 
+#RemovePackages
+PRODUCT_PACKAGES += \
+    RemovePackages
+
 # Wifi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
